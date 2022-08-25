@@ -8,10 +8,10 @@ export class UsuarioService {
   //CREAMOS LAS VARIABLES NECESARIAS DE TRABAJO:
   usuarios: any[] = [
     {
-      rut: '6.666.666-6',
-      nom_completo: 'Mister Satan',
-      fecha_nac : '1990-03-24',
-      semestre: 6,
+      rut: '18.356.303-3',
+      nom_completo: 'Jeremy Rodriguez',
+      fecha_nac : '1992-12-14',
+      semestre: 4,
       password: 'diosito',
       tipo_usuario: 'administrador'
     }
