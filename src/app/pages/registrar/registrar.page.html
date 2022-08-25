@@ -1,6 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>registrar</ion-title>
+    <ion-button slot="end" color="dark"routerLink="/login"><ion-icon name="person-outline"></ion-icon></ion-button>  
   </ion-toolbar>
 </ion-header>
 
@@ -31,12 +32,12 @@
       <ion-label position="floating">Ingrese contraseña nuevamente</ion-label>
       <ion-input type="password" placeholder="Ingrese contraseña nuevamente" [(ngModel)]="verificar_password" [ngModelOptions]="{standalone: 'true'}"></ion-input>
     </ion-item>
-    <ion-button type="submit" [disabled]="!alumno.valid">REGISTRAR</ion-button>  
+    <ion-button color="success" type="submit" [disabled]="!alumno.valid">REGISTRAR</ion-button>
   </form>
 
-  <h1>LISTA DE USUARIOS</h1>
+  <!--  <h1>LISTA DE USUARIOS</h1>
   <ion-list *ngFor="let u of usuarios">
     <p>{{u.rut}} - {{u.nom_completo}} - {{u.fecha_nac}} - {{u.semestre}} - {{u.password}}</p>
-  </ion-list>
+  </ion-list> -->
 
 </ion-content>

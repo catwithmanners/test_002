@@ -1,20 +1,45 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>CRUD USUARIOS</ion-title>
+    <ion-button slot="end" color="dark"routerLink="/login"><ion-icon name="person-outline"></ion-icon></ion-button>  
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <form [formGroup]="alumno" (ngSubmit)="registrar()">
+    <ion-item>
+      <ion-label position="floating">Rut</ion-label>
+      <ion-input type="text" placeholder="Ingrese rut" formControlName="rut"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nombre completo</ion-label>
+      <ion-input type="text" placeholder="Ingrese nombre completo" formControlName="nom_completo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Fecha nacimiento</ion-label>
+      <ion-input type="date" placeholder="Ingrese fecha de nacimiento" formControlName="fecha_nac"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Semestre</ion-label>
+      <ion-input type="number" placeholder="Ingrese semestre" formControlName="semestre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input type="password" placeholder="Ingrese contraseña" formControlName="password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Ingrese contraseña nuevamente</ion-label>
+      <ion-input type="password" placeholder="Ingrese contraseña nuevamente" [(ngModel)]="verificar_password" [ngModelOptions]="{standalone: 'true'}"></ion-input>
+    </ion-item>
+    <ion-button color="success" type="submit" [disabled]="!alumno.valid">REGISTRAR</ion-button>
+  </form>
+
+  <h1>LISTA DE USUARIOS</h1>
+  <ion-list *ngFor="let u of usuarios">
+    <p>{{u.rut}} - {{u.nom_completo}} - {{u.fecha_nac}} - {{u.semestre}} - {{u.password}}</p>
+    <ion-button slot="end" color="danger">ELIMINAR</ion-button>
+  </ion-list>
+
 </ion-content>
+

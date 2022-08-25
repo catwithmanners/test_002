@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
@@ -20,13 +21,13 @@ export class RegistrarPage implements OnInit {
   });
 
   //VAMOS A CREAR EL ARREGLO QUE TENDRA TODOS LOS USUARIOS REGISTRADOS DESDE EL SERVICIO:
-  usuarios: any[] = [];
+  //usuarios: any[] = [];
   verificar_password: string;
 
-  constructor(private usuarioService: UsuarioService) { }
+  constructor(private usuarioService: UsuarioService, private router: Router) { }
 
   ngOnInit() {
-    this.usuarios = this.usuarioService.obtenerUsuarios();
+    //this.usuarios = this.usuarioService.obtenerUsuarios();
   }
 
   //método que desencadena el formulario con el boton submit:
@@ -38,6 +39,8 @@ export class RegistrarPage implements OnInit {
     this.usuarioService.agregarUsuario(this.alumno.value);
     this.alumno.reset();
     alert('USUARIO REGISTRADO!');
+
+    this.router.navigate(['/login']);
   }
 
 }
