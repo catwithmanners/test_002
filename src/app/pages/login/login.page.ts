@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,7 +9,8 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  //Vamos a crear variables:
+
+  //vamos a crear variables:
   user: string;
   password: string;
 
@@ -18,7 +19,7 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  //Vamos a crear un método:
+  //vamos a crear un método:
   login(){
     if (this.user == 'admin' && this.password == 'admin') {
       this.router.navigate(['/home']);
@@ -29,9 +30,10 @@ export class LoginPage implements OnInit {
 
   async toastError() {
     const toast = await this.toastController.create({
-      message: 'Usuario o contraseña incorrectos',
+      message: 'USUARIO O CONTRASEÑA INCORRECTOS!',
       duration: 3000
     });
     toast.present();
   }
+
 }

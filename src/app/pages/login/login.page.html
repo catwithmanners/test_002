@@ -6,21 +6,24 @@
 
 <ion-content>
   <ion-card>
-    <img src="https://cdn-icons-png.flaticon.com/512/219/219983.png" />
+    <img src="https://th.bing.com/th/id/OIP.TVtnxMUjImBoh5ovMvfmWgHaHa?pid=ImgDet&rs=1" />
     <ion-card-header>
       <ion-card-subtitle>LOGIN</ion-card-subtitle>
       <ion-card-title>FORMULARIO DE INGRESO</ion-card-title>
     </ion-card-header>
     <ion-card-content>
+      
       <ion-item>
-        <ion-label position="stacked">Usuario:</ion-label>
+        <ion-label position="stacked">Usuario</ion-label>
         <ion-input placeholder="Ingrese usuario" type="text" [(ngModel)]="user"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="stacked">Contraseña:</ion-label>
+        <ion-label position="stacked">Contraseña</ion-label>
         <ion-input placeholder="Ingrese contraseña" type="password" [(ngModel)]="password"></ion-input>
       </ion-item>
-      <ion-button color="success" (click)="login()">Ingresar</ion-button>
+      <ion-button (click)="login()">INGRESAR</ion-button>
+      
     </ion-card-content>
   </ion-card>
+  <a href="/registrar">Ir a registro...</a>
 </ion-content>
