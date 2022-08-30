@@ -33,12 +33,35 @@ export class HomePage implements OnInit{
   //método que desencadena el formulario con el boton submit:
   registrar(){
     if (this.alumno.controls.password.value != this.verificar_password) {
-      alert('CONTRASEÑAS NO COINCIDEN!');
+      alert('¡CONTRASEÑAS NO COINCIDEN!');
       return;
     }
-    this.usuarioService.agregarUsuario(this.alumno.value);
-    this.alumno.reset();
-    alert('USUARIO REGISTRADO!');
+    var respuesta: boolean = this.usuarioService.agregarUsuario(this.alumno.value);
+    if (respuesta){
+      this.alumno.reset();
+      this.verificar_password = '';
+      alert('¡USUARIO REGISTRADO!');
+    }else{
+      alert('¡USUARIO NO REGISTRADO!');
+    }
 
+
+  }
+
+  eliminar(rutEliminar){
+    this.usuarioService.eliminarUsuario(rutEliminar);
+  }
+
+  buscar(rutBuscar){
+    var usuarioEncontrado: any = this.usuarioService.obtenerUsuario(rutBuscar);
+    this.alumno.setValue(usuarioEncontrado);
+    this.verificar_password = usuarioEncontrado.password;
+  }
+
+  actualizar(){
+    //console.log(this.alumno.value);
+    this.usuarioService.actualizarUsuario(this.alumno.value);
+    this.alumno.reset();
+    this.verificar_password = '';
   }
 }

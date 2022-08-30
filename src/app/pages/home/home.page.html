@@ -33,12 +33,14 @@
       <ion-input type="password" placeholder="Ingrese contraseña nuevamente" [(ngModel)]="verificar_password" [ngModelOptions]="{standalone: 'true'}"></ion-input>
     </ion-item>
     <ion-button color="success" type="submit" [disabled]="!alumno.valid">REGISTRAR</ion-button>
+    <ion-button color="secondary" (click)="actualizar()" [disabled]="!alumno.valid">ACTUALIZAR</ion-button>
   </form>
 
   <h1>LISTA DE USUARIOS</h1>
   <ion-list *ngFor="let u of usuarios">
     <p>{{u.rut}} - {{u.nom_completo}} - {{u.fecha_nac}} - {{u.semestre}} - {{u.password}}</p>
-    <ion-button slot="end" color="danger">ELIMINAR</ion-button>
+    <ion-button slot="end" color="warning" (click)="buscar(u.rut)">BUSCAR</ion-button>
+    <ion-button slot="end" color="danger" (click)="eliminar(u.rut)">ELIMINAR</ion-button>
   </ion-list>
 
 </ion-content>
